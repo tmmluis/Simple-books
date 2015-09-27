@@ -22,7 +22,7 @@
 		
 		<set name="books" table="author_book">
 			<key column="author_id"/>
-			<many-to-many column="book_id" class="book"/>
+			<many-to-many column="book_id" class="org.hibernate.tutorial.simple_books.Book"/>
 		</set>
 	</class>
 </hibernate-mapping>
