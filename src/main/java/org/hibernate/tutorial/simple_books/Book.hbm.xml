@@ -19,9 +19,6 @@
 		<property name="title" type="org.hibernate.type.StringType">
 			<column name="title" />
 		</property>
-		<property name="author" type="org.hibernate.type.StringType">
-			<column name="author" />
-		</property>
 		<property name="language" type="org.hibernate.type.StringType">
 			<column name="language" />
 		</property>

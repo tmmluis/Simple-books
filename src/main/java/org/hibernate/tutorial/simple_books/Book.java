@@ -20,7 +20,6 @@ public class Book {
 	private Long id;
 
 	private String title;
-	private String author;
 	private String language;
 
 	/*
@@ -38,7 +37,15 @@ public class Book {
 		return id;
 	}
 
-	public void setId(Long id) {
+	/*
+	 * we usually do not manipulate the identity of an object, hence the setter
+	 * method should be private. Only Hibernate will assign identifiers when an
+	 * object is saved. Hibernate can access public, private, and protected
+	 * accessor methods, as well as public, private and protected fields
+	 * directly. The choice is up to you and you can match it to fit your
+	 * application design.
+	 */
+	private void setId(Long id) {
 		this.id = id;
 	}
 
@@ -48,14 +55,6 @@ public class Book {
 
 	public void setTitle(String title) {
 		this.title = title;
-	}
-
-	public String getAuthor() {
-		return author;
-	}
-
-	public void setAuthor(String author) {
-		this.author = author;
 	}
 
 	public String getLanguage() {
