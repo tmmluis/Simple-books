@@ -1,5 +1,8 @@
 package org.hibernate.tutorial.simple_books;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * This class uses standard JavaBean naming conventions for property getter and
  * setter methods, as well as private visibility for the fields. Although this
@@ -21,6 +24,8 @@ public class Book {
 
 	private String title;
 	private String language;
+	
+	private Set<Author> authors = new HashSet<Author>();
 
 	/*
 	 * Implement a no-argument constructor. All persistent classes must have a
@@ -63,6 +68,24 @@ public class Book {
 
 	public void setLanguage(String language) {
 		this.language = language;
+	}
+
+	public Set<Author> getAuthors() {
+		return authors;
+	}
+
+	public void setAuthors(Set<Author> authors) {
+		this.authors = authors;
+	}
+	
+	public void addToAuthor(Author author) {
+		this.getAuthors().add(author);
+		author.getBooks().add(this);
+	}
+	
+	public void removeFromAuthor(Author author) {
+		this.getAuthors().remove(author);
+		author.getBooks().remove(this);
 	}
 
 }

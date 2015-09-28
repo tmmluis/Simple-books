@@ -22,5 +22,11 @@
 		<property name="language" type="org.hibernate.type.StringType">
 			<column name="language" />
 		</property>
+		
+		<set name="authors" table="author_book" inverse="true">
+			<key column="book_id"/>
+			<many-to-many column="author_id" class="org.hibernate.tutorial.simple_books.Author"/>
+		</set>
+		
 	</class>
 </hibernate-mapping>

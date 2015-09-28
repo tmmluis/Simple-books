@@ -55,6 +55,14 @@ public class Author {
 		this.books = books;
 	}
 	
+	public void addToBook(Book book) {
+		this.getBooks().add(book);
+		book.getAuthors().add(this);
+	}
 	
+	public void removeFromBook(Book book) {
+		this.getBooks().remove(book);
+		book.getAuthors().remove(this);
+	}
 
 }
